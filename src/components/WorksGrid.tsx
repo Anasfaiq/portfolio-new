@@ -1,8 +1,28 @@
 import { Fragment } from "react/jsx-runtime";
+import imageEtch from "../assets/etch-a-sketch.png";
+import imageManajemen from "../assets/manajemen-member.png";
 import Card from "./ui/Card";
 import WorkCard from "./ui/WorkCard";
 
 const WorksGrid = () => {
+  const works = [
+    {
+      id: 1,
+      image: imageEtch,
+      title: "Etch-a-Sketch",
+      description: "A digital recreation of the classic drawing toy",
+      tags: ["Tailwind CSS", "JavaScript", "HTML5", "CSS3"],
+    },
+    {
+      id: 2,
+      image: imageManajemen,
+      title: "Manajemen Member",
+      description:
+        "A member management system for a local community organization",
+      tags: ["React", "TypeScript", "Tailwind CSS"],
+    },
+  ];
+
   return (
     <Fragment>
       <Card>
@@ -14,9 +34,20 @@ const WorksGrid = () => {
         </div>
       </Card>
 
-      <WorkCard>
-        <div> <img src="" alt="" /></div>
-      </WorkCard>
+      <div className="grid grid-cols-2 gap-6">
+        {works.map(({ id, image, title, description, tags }, index) => (
+          <WorkCard
+            key={id}
+            image={image}
+            title={title}
+            description={description}
+            tags={tags}
+            className={ index === 0 ? "col-span-2" : "" }
+          />
+        ))}
+      </div>
+
+      
     </Fragment>
   );
 };
