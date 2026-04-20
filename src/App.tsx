@@ -4,7 +4,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div className="flex flex-col justify-center min-h-screen px-80">
+    <div className="flex flex-col gap-6 justify-center min-h-screen pt-10 px-80">
       <Hero 
         badge="AVAILABLE FOR HIRE"
         title="Frontend Developer Specializing in Modern Web Experiences"

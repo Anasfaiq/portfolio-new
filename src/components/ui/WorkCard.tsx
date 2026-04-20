@@ -9,7 +9,7 @@ interface Props {
 const WorkCard = ({ image, title, description, tags, className }: Props) => {
   return (
     <div
-      className={`group border-2 border-black mt-10 overflow-hidden ${className}`}
+      className={`group border-2 border-black overflow-hidden ${className}`}
     >
       <div className="overflow-hidden">
         <img
