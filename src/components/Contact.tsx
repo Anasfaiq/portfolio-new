@@ -32,7 +32,7 @@ const Contact = () => {
             anasfaiq04@gmail.com
           </a>
           <div className="flex gap-3">
-            <div className="p-2.5 border border-olive hover:bg-olive">
+            <div className="p-2.5 border border-olive hover:bg-olive transition-all duration-200">
               <a href="https://github.com/anasfaiq" target="blank_">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const Contact = () => {
                 </svg>
               </a>
             </div>
-            <div className="p-2.5 border border-olive hover:bg-olive">
+            <div className="p-2.5 border border-olive hover:bg-olive transition-all duration-200">
               <a href="https://www.instagram.com/ansfqq08/" target="blank_">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

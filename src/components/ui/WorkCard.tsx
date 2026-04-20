@@ -3,12 +3,22 @@ interface Props {
   title: string;
   description: string;
   tags: string[];
+  linkDemo: string;
   className?: string;
 }
 
-const WorkCard = ({ image, title, description, tags, className }: Props) => {
+const WorkCard = ({
+  image,
+  title,
+  description,
+  tags,
+  linkDemo,
+  className,
+}: Props) => {
   return (
-    <div
+    <a
+      href={linkDemo}
+      target="blank_"
       className={`group border-2 border-black overflow-hidden ${className}`}
     >
       <div className="overflow-hidden">
@@ -49,7 +59,7 @@ const WorkCard = ({ image, title, description, tags, className }: Props) => {
           ))}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
