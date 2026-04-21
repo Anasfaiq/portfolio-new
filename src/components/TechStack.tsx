@@ -2,39 +2,41 @@ import Card from "./ui/Card";
 
 const TechStack = () => {
   return (
-    <div className="grid grid-cols-2 gap-6 font-inter">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-inter">
       <Card>
         <div className="flex flex-col gap-6">
-          <p className="text-2xl font-bold">Tech Stack</p>
+          <p className="text-xl md:text-2xl font-bold">Tech Stack</p>
           <ul className="flex flex-col gap-1">
-            <li className="text-gray-600">CORE</li>
+            <li className="text-gray-600 text-sm">CORE</li>
             {["React", "TypeScript", "JavaScript", "PHP"].map((core) => (
-              <li>{core}</li>
+              <li key={core}>{core}</li>
             ))}
           </ul>
           <ul className="flex flex-col gap-1">
-            <li className="text-gray-600">STYLING</li>
+            <li className="text-gray-600 text-sm">STYLING</li>
             {["Tailwind CSS", "CSS3", "Responsive Design"].map((styling) => (
-              <li>{styling}</li>
+              <li key={styling}>{styling}</li>
             ))}
           </ul>
           <ul className="flex flex-col gap-1">
-            <li className="text-gray-600">TOOLS</li>
+            <li className="text-gray-600 text-sm">TOOLS</li>
             {["Vite", "Git", "npm"].map((tool) => (
-              <li>{tool}</li>
+              <li key={tool}>{tool}</li>
             ))}
           </ul>
           <ul className="flex flex-col gap-1">
-            <li className="text-gray-600">STATE & DATA</li>
+            <li className="text-gray-600 text-sm">STATE & DATA</li>
             {["React Query"].map((stateData) => (
-              <li>{stateData}</li>
+              <li key={stateData}>{stateData}</li>
             ))}
           </ul>
         </div>
       </Card>
       <Card>
         <div className="flex flex-col gap-6">
-          <h2 className="font-inter font-bold text-2xl">Freelance Services</h2>
+          <h2 className="font-inter font-bold text-xl md:text-2xl">
+            Freelance Services
+          </h2>
           <ul className="flex flex-col gap-3">
             {[
               "Custom Web Application Development",
@@ -44,8 +46,11 @@ const TechStack = () => {
               "Responsive Design & Mobile-First Development",
               "Code Review & Refactoring",
             ].map((service) => (
-              <li key={service} className="flex items-center gap-3 font-inter">
-                <span className="w-2 h-2 bg-black rotate-45 shrink-0" />
+              <li
+                key={service}
+                className="flex items-start gap-3 font-inter text-sm md:text-base"
+              >
+                <span className="w-2 h-2 bg-black rotate-45 shrink-0 mt-1.5" />
                 {service}
               </li>
             ))}

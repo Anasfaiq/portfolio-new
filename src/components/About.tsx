@@ -19,9 +19,20 @@ interface Props {
 
 const About = ({ name, title, location, description }: Props) => {
   return (
-    <div className="border-2 border-black p-8 mt-6">
-      <div className="flex gap-10 items-start">
-        <div className="flex-1 flex flex-col gap-6">
+    <div className="border-2 border-black p-4 md:p-8 mt-6">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
+        {/* Avatar — top on mobile, right on desktop */}
+        <div className="w-32 h-32 md:w-44 md:h-44 border-2 border-black flex items-center justify-center shrink-0 bg-gray-50 overflow-hidden self-center md:self-start md:order-last">
+          <picture>
+            <img
+              src={selfPhoto}
+              alt="Anas Faiq"
+              className="w-full h-full object-cover"
+            />
+          </picture>
+        </div>
+
+        <div className="flex-1 flex flex-col gap-5">
           <div className="border border-black px-3 py-1 w-max">
             <p className="font-inter font-thin text-xs tracking-widest">
               ABOUT ME
@@ -29,15 +40,17 @@ const About = ({ name, title, location, description }: Props) => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="font-inter font-bold text-5xl">{name}</h2>
-            <div className="font-inter font-thin text-gray-400 text-sm tracking-wide flex gap-2">
+            <h2 className="font-inter font-bold text-3xl md:text-5xl">
+              {name}
+            </h2>
+            <div className="font-inter font-thin text-gray-400 text-xs md:text-sm tracking-wide flex gap-2 flex-wrap">
               <p>{title}</p>
               <p>·</p>
               <p>{location}</p>
             </div>
           </div>
 
-          <p className="font-inter font-thin text-gray-500 text-lg leading-relaxed">
+          <p className="font-inter font-thin text-gray-500 text-base md:text-lg leading-relaxed">
             {description}
           </p>
 
@@ -80,13 +93,6 @@ const About = ({ name, title, location, description }: Props) => {
             </svg>
             GitHub
           </a>
-        </div>
-
-        {/* Avatar */}
-        <div className="w-44 h-44 border-2 border-black flex items-center justify-center shrink-0 bg-gray-50 overflow-hidden">
-          <picture>
-            <img src={selfPhoto} alt="Anas Faiq" />
-          </picture>
         </div>
       </div>
     </div>

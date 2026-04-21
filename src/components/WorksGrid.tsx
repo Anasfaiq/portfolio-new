@@ -57,25 +57,29 @@ const WorksGrid = () => {
       <div className="flex flex-col gap-6">
         <Card>
           <div className="flex flex-col gap-2">
-            <h1 className="font-inter font-bold text-3xl">Selected Works</h1>
-            <p className="text-gray-600 text-lg">
+            <h1 className="font-inter font-bold text-2xl md:text-3xl">
+              Selected Works
+            </h1>
+            <p className="text-gray-600 text-base md:text-lg">
               Recent projects demonstrating UI/UX and system architecture
             </p>
           </div>
         </Card>
 
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-1">
-          {works.map(({ id, image, title, description, tags, linkDemo }, index) => (
-            <WorkCard
-              key={id}
-              image={image}
-              title={title}
-              description={description}
-              tags={tags}
-              linkDemo={linkDemo}
-              className={index === 0 ? "col-span-2" : ""}
-            />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {works.map(
+            ({ id, image, title, description, tags, linkDemo }, index) => (
+              <WorkCard
+                key={id}
+                image={image}
+                title={title}
+                description={description}
+                tags={tags}
+                linkDemo={linkDemo}
+                className={index === 0 ? "md:col-span-2" : ""}
+              />
+            ),
+          )}
         </div>
       </div>
     </Fragment>
