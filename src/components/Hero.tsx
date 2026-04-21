@@ -1,11 +1,14 @@
-import Card from './ui/Card';
+import Card from "./ui/Card";
+
 interface Props {
   badge: string;
   title: string;
   description: string;
   buttonText: string;
+  onHireMe: () => void;
 }
-const Hero = ({ badge, title, description, buttonText }: Props) => {
+
+const Hero = ({ badge, title, description, buttonText, onHireMe }: Props) => {
   return (
     <Card>
       <div className="max-w-4xl flex flex-col gap-8 p-8">
@@ -17,9 +20,10 @@ const Hero = ({ badge, title, description, buttonText }: Props) => {
           {description}
         </p>
         <button
+          onClick={onHireMe}
           className="border-2 border-black flex gap-2 font-inter font-medium text-md
-         bg-black text-white hover:bg-white hover:text-black hover:border-black cursor-pointer transition-all duration-200 
-         px-7 py-4 w-max items-center"
+           bg-black text-white hover:bg-white hover:text-black hover:border-black cursor-pointer transition-all duration-200 
+           px-7 py-4 w-max items-center"
         >
           {buttonText}
           <svg

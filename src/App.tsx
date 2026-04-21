@@ -34,7 +34,11 @@ const App = () => {
         <TechStack />
       </div>
       <div ref={contactRef}>
-        <Contact />
+        <Contact 
+          email="anasfaiq04@gmail.com"
+          instagram="ansfqq08"
+          github="anasfaiq"
+        />
       </div>
     </div>
   );

@@ -1,6 +1,12 @@
-const Contact = () => {
+interface Props {
+  email: string;
+  instagram: string;
+  github: string;
+}
+
+const Contact = ({ email, instagram, github }: Props) => {
   return (
-    <div className="bg-charcoal text-white px-90 py-10 mt-6 flex flex-col gap-6">
+    <div id="contact" className="bg-charcoal text-white px-90 py-10 mt-6 flex flex-col gap-6">
       <div className="flex gap-6">
         <div className="flex flex-1 flex-col gap-6">
           <p className="text-4xl font-bold">Let's Work Together</p>
@@ -29,11 +35,11 @@ const Contact = () => {
               <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
               <path d="M3 7l9 6l9 -6" />
             </svg>
-            anasfaiq04@gmail.com
+            {email}
           </a>
           <div className="flex gap-3">
             <div className="p-2.5 border border-olive hover:bg-olive transition-all duration-200">
-              <a href="https://github.com/anasfaiq" target="blank_">
+              <a href={`https://github.com/${github}/`} target="blank_">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -52,7 +58,7 @@ const Contact = () => {
               </a>
             </div>
             <div className="p-2.5 border border-olive hover:bg-olive transition-all duration-200">
-              <a href="https://www.instagram.com/ansfqq08/" target="blank_">
+              <a href={`https://www.instagram.com/${instagram}/`} target="blank_">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
