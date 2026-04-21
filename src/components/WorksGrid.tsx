@@ -64,7 +64,7 @@ const WorksGrid = () => {
           </div>
         </Card>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-1">
           {works.map(({ id, image, title, description, tags, linkDemo }, index) => (
             <WorkCard
               key={id}
