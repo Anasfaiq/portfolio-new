@@ -14,14 +14,6 @@ const Hero = ({ badge, title, description, buttonText, onHireMe }: Props) => {
     <div className="relative">
       <Card>
         <AccentShapes variant="hero" />
-        <AccentShapes variant="circle" className="top-15 -left-10" />
-        <AccentShapes variant="square" className="-top-1 -left-5" />
-        <AccentShapes variant="diamond" className="top-1/3 -right-10" />
-        <AccentShapes
-          variant="black-square"
-          className="-top-9 left-13 w-6 h-6 -rotate-12"
-        />
-        <AccentShapes variant="diamond" className="top-1/3 -right-10" />
         <AccentShapes
           variant="black-circle"
           className="w-30 h-30 -right-10 -bottom-10"
@@ -38,9 +30,10 @@ const Hero = ({ badge, title, description, buttonText, onHireMe }: Props) => {
           </p>
           <button
             onClick={onHireMe}
-            className="border-2 border-black flex gap-2 font-inter font-medium text-sm md:text-md
+            className="border-2 border-black flex gap-2 font-inter font-medium text-sm md:text-md outline-none
            bg-white text-black hover:bg-black hover:text-white hover:border-black cursor-pointer transition-all duration-200 
-           px-5 py-3 md:px-7 md:py-4 w-max items-center shadow-[6px_6px_0_#1A1A1A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:scale-95"
+           active:bg-black active:text-white active:scale-95 active:border-black active:shadow-none active:translate-x-1 active:translate-y-1
+           px-5 py-3 md:px-7 md:py-4 w-max items-center shadow-[6px_6px_0_#1A1A1A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
           >
             {buttonText}
             <svg

@@ -19,13 +19,13 @@ const WorkCard = ({
     <a
       href={linkDemo}
       target="blank_"
-      className={`group border-2 border-black overflow-hidden shadow-[6px_6px_0_#1A1A1A] ${className}`}
+      className={`group border-2 border-black overflow-hidden shadow-[6px_6px_0_#1A1A1A] outline-none ${className}`}
     >
       <div className="overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="group-hover:scale-105 transition-all duration-300"
+          className="group-hover:scale-105 group-active:scale-105 transition-all duration-300"
         />
       </div>
       <div className="flex flex-col gap-4 p-6">

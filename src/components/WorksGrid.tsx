@@ -1,16 +1,18 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment } from "react";
 import imageEtch from "../assets/etch-a-sketch.png";
 import imageManajemen from "../assets/manajemen-member.png";
 import imageBerita from "../assets/berita.png";
 import imageCalculator from "../assets/kalkulator.png";
 import imageWeather from "../assets/weather.png";
 import comicList from "../assets/ComicList.png";
+import AccentShapes from "./ui/AccentShapes";
 import Card from "./ui/Card";
 import WorkCard from "./ui/WorkCard";
 
 const WorksGrid = () => {
   const works = [
     {
+      id: 1,
       image: comicList,
       title: "Comic List",
       description:
@@ -19,22 +21,7 @@ const WorksGrid = () => {
       linkDemo: "https://comic-list.vercel.app/",
     },
     {
-      image: imageEtch,
-      title: "Etch-a-Sketch",
-      description:
-        "A browser-based take on the iconic drawing toy — pick your colors, adjust the grid size, and sketch freely on an interactive canvas.",
-      tags: ["Tailwind CSS", "JavaScript", "HTML5", "CSS3"],
-      linkDemo: "https://etch-a-sketch-seven-sooty.vercel.app/",
-    },
-    {
-      image: imageManajemen,
-      title: "Manajemen Member",
-      description:
-        "A member & points management app with full CRUD functionality — built with React and local state management as a frontend-focused project.",
-      tags: ["React", "TypeScript", "Tailwind CSS"],
-      linkDemo: "https://app-manajemen-member-dan-poin.vercel.app/",
-    },
-    {
+      id: 2,
       image: imageBerita,
       title: "Berita",
       description:
@@ -43,6 +30,25 @@ const WorksGrid = () => {
       linkDemo: "https://berita-sage.vercel.app/",
     },
     {
+      id: 3,
+      image: imageManajemen,
+      title: "Manajemen Member",
+      description:
+        "A member & points management app with full CRUD functionality — built with React and local state management as a frontend-focused project.",
+      tags: ["React", "TypeScript", "Tailwind CSS"],
+      linkDemo: "https://app-manajemen-member-dan-poin.vercel.app/",
+    },
+    {
+      id: 4,
+      image: imageEtch,
+      title: "Etch-a-Sketch",
+      description:
+        "A browser-based take on the iconic drawing toy — pick your colors, adjust the grid size, and sketch freely on an interactive canvas.",
+      tags: ["Tailwind CSS", "JavaScript", "HTML5", "CSS3"],
+      linkDemo: "https://etch-a-sketch-seven-sooty.vercel.app/",
+    },
+    {
+      id: 5,
       image: imageCalculator,
       title: "Kalkulator",
       description:
@@ -51,6 +57,7 @@ const WorksGrid = () => {
       linkDemo: "https://calculator-app-lilac-five.vercel.app/",
     },
     {
+      id: 6,
       image: imageWeather,
       title: "Weather App",
       description:
@@ -63,27 +70,33 @@ const WorksGrid = () => {
   return (
     <Fragment>
       <div className="flex flex-col gap-6">
-        <Card>
-          <div className="flex flex-col gap-2">
-            <h1 className="font-inter font-bold text-2xl md:text-3xl">
-              Selected Works
-            </h1>
-            <p className="text-gray-600 text-base md:text-lg">
-              Recent projects demonstrating UI/UX and system architecture
-            </p>
-          </div>
-        </Card>
-
+        <div className="relative">
+          <AccentShapes variant="diamond" className="-top-8 -right-2" />
+          <AccentShapes
+            variant="black-square"
+            className="w-4 h-4 top-10 -right-12 rotate-6"
+          />
+          <Card>
+            <div className="flex flex-col gap-2">
+              <h1 className="font-inter font-bold text-2xl md:text-3xl">
+                Selected Works
+              </h1>
+              <p className="text-gray-600 text-base md:text-lg">
+                Recent projects demonstrating UI/UX and system architecture
+              </p>
+            </div>
+          </Card>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {works.map(({ image, title, description, tags, linkDemo }, index) => (
+          {works.map(({ id, image, title, description, tags, linkDemo }) => (
             <WorkCard
-              key={Date.now()}
+              key={id}
               image={image}
               title={title}
               description={description}
               tags={tags}
               linkDemo={linkDemo}
-              className={index === 0 ? "md:col-span-2" : ""}
+              className={id === 1 || id % 4 === 0 ? "md:col-span-2" : ""}
             />
           ))}
         </div>
