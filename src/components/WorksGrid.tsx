@@ -15,7 +15,7 @@ const WorksGrid = () => {
       title: "Comic List",
       description:
         "Browse and discover comics with ease — features real-time search, genre filtering, and a visually organized card layout.",
-      tags: ["React", "TypeScript", "Tailwind CSS"],
+      tags: ["React", "TypeScript", "Vite", "Supabase", "Tailwind CSS"],
       linkDemo: "https://comic-list.vercel.app/",
     },
     {
