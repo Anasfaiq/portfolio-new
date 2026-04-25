@@ -19,7 +19,7 @@ const WorkCard = ({
     <a
       href={linkDemo}
       target="blank_"
-      className={`group border-2 border-black overflow-hidden ${className}`}
+      className={`group border-2 border-black overflow-hidden shadow-[6px_6px_0_#1A1A1A] ${className}`}
     >
       <div className="overflow-hidden">
         <img
