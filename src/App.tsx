@@ -5,6 +5,7 @@ import WorksGrid from "./components/WorksGrid";
 import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
 import { DarkMode } from "./components/DarkMode";
+import { Reveal } from "./components/Reveal";
 import "./App.css";
 
 const App = () => {
@@ -72,28 +73,38 @@ const App = () => {
       </button>
 
       <div className="flex flex-col gap-6 justify-center min-h-screen pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80">
-        <Hero
-          badge="AVAILABLE FOR HIRE"
-          title="Frontend Developer Specializing in Modern Web Experiences"
-          description="Building fast, responsive, and accessible interfaces with React, Vite, and Tailwind CSS. From concept to deployment."
-          buttonText="Hire Me"
-          onHireMe={handleHireMe}
-        />
-        <About
-          name="Anas Faiq"
-          title="Junior Frontend Developer"
-          location="Depok, Indonesia"
-          description="I am a junior frontend developer with a strong passion for building responsive and interactive web applications. Currently, I am focused on mastering modern technologies like React and Tailwind CSS to create clean, efficient, and user-centric interfaces."
-        />
-        <WorksGrid />
-        <TechStack />
+        <Reveal>
+          <Hero
+            badge="AVAILABLE FOR HIRE"
+            title="Frontend Developer Specializing in Modern Web Experiences"
+            description="Building fast, responsive, and accessible interfaces with React, Vite, and Tailwind CSS. From concept to deployment."
+            buttonText="Hire Me"
+            onHireMe={handleHireMe}
+          />
+        </Reveal>
+        <Reveal>
+          <About
+            name="Anas Faiq"
+            title="Junior Frontend Developer"
+            location="Depok, Indonesia"
+            description="I am a junior frontend developer with a strong passion for building responsive and interactive web applications. Currently, I am focused on mastering modern technologies like React and Tailwind CSS to create clean, efficient, and user-centric interfaces."
+          />
+        </Reveal>
+        <Reveal>
+          <WorksGrid />
+        </Reveal>
+        <Reveal>
+          <TechStack />
+        </Reveal>
       </div>
       <div ref={contactRef}>
-        <Contact
-          email="anasfaiq04@gmail.com"
-          instagram="ansfqq08"
-          github="anasfaiq"
-        />
+        <Reveal>
+          <Contact
+            email="anasfaiq04@gmail.com"
+            instagram="ansfqq08"
+            github="anasfaiq"
+          />
+        </Reveal>
       </div>
     </div>
   );
