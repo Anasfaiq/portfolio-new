@@ -1,9 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WorksGrid from "./components/WorksGrid";
 import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
+import Navbar from "./components/Navbar";
 import { DarkMode } from "./components/DarkMode";
 import { Reveal } from "./components/Reveal";
 import Lenis from "lenis";
@@ -14,19 +15,38 @@ const App = () => {
   const { isDarkMode, toggleTheme } = DarkMode();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePos({ x: e.clientX, y: e.clientY });
-  };
-
   const handleHireMe = () => {
     if (contactRef.current) {
       contactRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  const useActiveSection = () => {
+    const [active, setActive] = useState("");
+    useEffect(() => {
+      const sections = document.querySelectorAll("section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
+          });
+        },
+        {
+          threshold: 0.6,
+        },
+      );
+      sections.forEach((section) => observer.observe(section));
+      return () => observer.disconnect();
+    }, []);
+    return active;
+  };
+
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 2.5,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       wheelMultiplier: 1,
       infinite: false,
@@ -43,18 +63,26 @@ const App = () => {
       lenis.destroy();
     };
   }, []);
-  
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
-    <div
-      onMouseMove={handleMouseMove}
-      style={{
-        background: isDarkMode
-          ? `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(240, 237, 230, 0.07), transparent 80%)`
-          : `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(26, 26, 26, 0.2), transparent 80%)`,
-      }}
-      className="relative"
-    >
+    <div className="relative">
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          background: isDarkMode
+            ? `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(240, 237, 230, 0.07), transparent 80%)`
+            : `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(26, 26, 26, 0.2), transparent 80%)`,
+        }}
+      />
       {/* sticky toggle button */}
       <button
         className="fixed bottom-4 right-4 z-50 rounded-full p-2 border
@@ -107,32 +135,45 @@ const App = () => {
         )}
       </button>
 
+      <Navbar>
+        {/* Hapus rotate-90, ganti dengan flex-col dan writing-mode */}
+        
+      </Navbar>
+
       <div className="flex flex-col gap-6 justify-center min-h-screen pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80">
-        <Reveal>
-          <Hero
-            badge="AVAILABLE FOR HIRE"
-            title="Frontend Developer Specializing in Modern Web Experiences"
-            description="Building fast, responsive, and accessible interfaces with React, Vite, and Tailwind CSS. From concept to deployment."
-            buttonText="Hire Me"
-            onHireMe={handleHireMe}
-          />
-        </Reveal>
-        <Reveal>
-          <About
-            name="Anas Faiq"
-            title="Junior Frontend Developer"
-            location="Depok, Indonesia"
-            description="I am a junior frontend developer with a strong passion for building responsive and interactive web applications. Currently, I am focused on mastering modern technologies like React and Tailwind CSS to create clean, efficient, and user-centric interfaces."
-          />
-        </Reveal>
-        <Reveal>
-          <WorksGrid />
-        </Reveal>
-        <Reveal>
-          <TechStack />
-        </Reveal>
+        <section id="hero">
+          <Reveal>
+            <Hero
+              badge="AVAILABLE FOR HIRE"
+              title="Frontend Developer Specializing in Modern Web Experiences"
+              description="Building fast, responsive, and accessible interfaces with React, Vite, and Tailwind CSS. From concept to deployment."
+              buttonText="Hire Me"
+              onHireMe={handleHireMe}
+            />
+          </Reveal>
+        </section>
+        <section id="about">
+          <Reveal>
+            <About
+              name="Anas Faiq"
+              title="Junior Frontend Developer"
+              location="Depok, Indonesia"
+              description="I am a junior frontend developer with a strong passion for building responsive and interactive web applications. Currently, I am focused on mastering modern technologies like React and Tailwind CSS to create clean, efficient, and user-centric interfaces."
+            />
+          </Reveal>
+        </section>
+        <section id="work">
+          <Reveal>
+            <WorksGrid />
+          </Reveal>
+        </section>
+        <section id="tech">
+          <Reveal>
+            <TechStack />
+          </Reveal>
+        </section>
       </div>
-      <div ref={contactRef}>
+      <section id="contact" ref={contactRef}>
         <Reveal>
           <Contact
             email="anasfaiq04@gmail.com"
@@ -140,7 +181,7 @@ const App = () => {
             github="anasfaiq"
           />
         </Reveal>
-      </div>
+      </section>
     </div>
   );
 };
