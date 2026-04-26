@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 export function DarkMode() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    // ini jalan SEBELUM render pertama
     const storedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)",
