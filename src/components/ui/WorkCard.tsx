@@ -19,7 +19,10 @@ const WorkCard = ({
     <a
       href={linkDemo}
       target="blank_"
-      className={`group border-2 border-black overflow-hidden shadow-[6px_6px_0_#1A1A1A] outline-none ${className}`}
+      className={`group border-2 border-(--color-border) overflow-hidden
+        shadow-[6px_6px_0_var(--color-shadow)]
+        bg-surface
+        outline-none ${className}`}
     >
       <div className="overflow-hidden">
         <img
@@ -30,7 +33,9 @@ const WorkCard = ({
       </div>
       <div className="flex flex-col gap-4 p-6">
         <div className="flex justify-between">
-          <h2 className="font-inter font-bold text-xl">{title}</h2>
+          <h2 className="font-inter font-bold text-xl text-(--color-text-base)">
+            {title}
+          </h2>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -41,20 +46,21 @@ const WorkCard = ({
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className="text-(--color-text-based)"
           >
             <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
             <path d="M11 13l9 -9" />
             <path d="M15 4h5v5" />
           </svg>
         </div>
-        <p className="text-gray-600 font-inter">{description}</p>
+        <p className="text-text-muted font-inter">{description}</p>
         <div className="flex gap-2 flex-wrap">
           {tags.map((tag) => (
             <div
               key={tag}
-              className="border border-black px-2 py-1 w-max text-xs"
+              className="border border-(--color-border) px-2 py-1 w-max text-xs"
             >
-              <p className="font-inter font-thin">{tag}</p>
+              <p className="font-inter font-thin text-(--color-text-base)">{tag}</p>
             </div>
           ))}
         </div>

@@ -8,12 +8,12 @@ const Contact = ({ email, instagram, github }: Props) => {
   return (
     <div
       id="contact"
-      className="bg-charcoal text-white px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80 py-10 mt-6 flex flex-col gap-6"
+      className="bg-[#141210] text-[#F0EDE6] px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80 py-10 mt-6 flex flex-col gap-6"
     >
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex flex-1 flex-col gap-4">
           <p className="text-2xl md:text-4xl font-bold">Let's Work Together</p>
-          <p className="text-gray-300 text-sm md:text-base">
+          <p className="text-[#9E9A90] text-sm md:text-base">
             Available for freelance projects, consulting, and long-term
             collaborations. Get in touch to discuss your next web application.
           </p>
@@ -21,7 +21,7 @@ const Contact = ({ email, instagram, github }: Props) => {
         <div className="flex-1 flex flex-col gap-6 justify-center">
           <a
             href={`mailto:${email}`}
-            className="flex items-center gap-3 font-inter hover:underline transition-all duration-200 w-max text-white hover:text-olive text-sm md:text-base break-all"
+            className="flex items-center gap-3 font-inter hover:underline transition-all duration-200 w-max text-[#F0EDE6] hover:text-olive text-sm md:text-base break-all"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,8 +86,8 @@ const Contact = ({ email, instagram, github }: Props) => {
           </div>
         </div>
       </div>
-      <hr className="mt-4 border-olive-500" />
-      <p className="text-stone-300 text-xs md:text-sm">
+      <hr className="mt-4 border-[#2E2B26]" />
+      <p className="text-[#9E9A90] text-xs md:text-sm">
         &copy; 2026 Anas Faiq. All rights reserved.
       </p>
     </div>

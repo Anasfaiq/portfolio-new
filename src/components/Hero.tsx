@@ -19,21 +19,27 @@ const Hero = ({ badge, title, description, buttonText, onHireMe }: Props) => {
           className="w-30 h-30 -right-10 -bottom-10"
         />
         <div className="flex flex-col gap-6 md:gap-8 lg:max-w-4xl">
-          <div className="border border-black px-3 py-1 w-max">
-            <p className="font-inter font-thin text-xs md:text-sm">{badge}</p>
+          <div className="border border-(--color-border) px-3 py-1 w-max">
+            <p className="font-inter font-thin text-xs md:text-sm text-(--color-text-base)">
+              {badge}
+            </p>
           </div>
-          <h1 className="font-inter font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+          <h1 className="font-inter font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-(--color-text-base)">
             {title}
           </h1>
-          <p className="text-base md:text-xl font-inter font-thin text-gray-500">
+          <p className="text-base md:text-xl font-inter font-thin text-(--color-text-muted)">
             {description}
           </p>
           <button
             onClick={onHireMe}
-            className="border-2 border-black flex gap-2 font-inter font-medium text-sm md:text-md outline-none
-           bg-white text-black hover:bg-black hover:text-white hover:border-black cursor-pointer transition-all duration-200 
-           active:bg-black active:text-white active:scale-95 active:border-black active:shadow-none active:translate-x-1 active:translate-y-1
-           px-5 py-3 md:px-7 md:py-4 w-max items-center shadow-[6px_6px_0_#1A1A1A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+            className="border-2 border-(--color-border) flex gap-2 font-inter font-medium text-sm md:text-md outline-none
+              bg-(--color-surface) text-(--color-text-base)
+              hover:bg-(--color-text-base) hover:text-(--color-surface)
+              cursor-pointer transition-all duration-200
+              active:scale-95 active:shadow-none active:translate-x-1 active:translate-y-1
+              px-5 py-3 md:px-7 md:py-4 w-max items-center
+              shadow-[6px_6px_0_var(--color-shadow)]
+              hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
           >
             {buttonText}
             <svg

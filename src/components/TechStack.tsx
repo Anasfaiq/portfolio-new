@@ -10,36 +10,37 @@ const TechStack = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-inter">
         <Card>
           <div className="flex flex-col gap-6">
-            <p className="text-xl md:text-2xl font-bold">Tech Stack</p>
-            <ul className="flex flex-col gap-1">
-              <li className="text-gray-600 text-sm">CORE</li>
-              {["React", "TypeScript", "JavaScript", "PHP"].map((core) => (
-                <li key={core}>{core}</li>
-              ))}
-            </ul>
-            <ul className="flex flex-col gap-1">
-              <li className="text-gray-600 text-sm">STYLING</li>
-              {["Tailwind CSS", "CSS3", "Responsive Design"].map((styling) => (
-                <li key={styling}>{styling}</li>
-              ))}
-            </ul>
-            <ul className="flex flex-col gap-1">
-              <li className="text-gray-600 text-sm">TOOLS</li>
-              {["Vite", "Git", "npm"].map((tool) => (
-                <li key={tool}>{tool}</li>
-              ))}
-            </ul>
-            <ul className="flex flex-col gap-1">
-              <li className="text-gray-600 text-sm">STATE & DATA</li>
-              {["React Query"].map((stateData) => (
-                <li key={stateData}>{stateData}</li>
-              ))}
-            </ul>
+            <p className="text-xl md:text-2xl font-bold text-(--color-text-base)">
+              Tech Stack
+            </p>
+            {[
+              {
+                label: "CORE",
+                items: ["React", "TypeScript", "JavaScript", "PHP"],
+              },
+              {
+                label: "STYLING",
+                items: ["Tailwind CSS", "CSS3", "Responsive Design"],
+              },
+              { label: "TOOLS", items: ["Vite", "Git", "npm"] },
+              { label: "STATE & DATA", items: ["React Query"] },
+            ].map(({ label, items }) => (
+              <ul key={label} className="flex flex-col gap-1">
+                <li className="text-(--color-text-muted) text-sm">
+                  {label}
+                </li>
+                {items.map((item) => (
+                  <li key={item} className="text-(--color-text-base)">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ))}
           </div>
         </Card>
         <Card>
           <div className="flex flex-col gap-6">
-            <h2 className="font-inter font-bold text-xl md:text-2xl">
+            <h2 className="font-inter font-bold text-xl md:text-2xl text-(--color-text-base)">
               Freelance Services
             </h2>
             <ul className="flex flex-col gap-3">
@@ -53,15 +54,15 @@ const TechStack = () => {
               ].map((service) => (
                 <li
                   key={service}
-                  className="flex items-start gap-3 font-inter text-sm md:text-base"
+                  className="flex items-start gap-3 font-inter text-sm md:text-base text-(--color-text-base)"
                 >
-                  <span className="w-2 h-2 bg-black rotate-45 shrink-0 mt-1.5" />
+                  <span className="w-2 h-2 bg-(--color-border) rotate-45 shrink-0 mt-1.5" />
                   {service}
                 </li>
               ))}
             </ul>
-            <hr className="border-gray-600" />
-            <p className="text-gray-500 text-sm font-inter font-light">
+            <hr className="border-(--color-text-muted)" />
+            <p className="text-(--color-text-muted) text-sm font-inter font-light">
               Currently available for project-based work and ongoing
               collaborations
             </p>

@@ -30,8 +30,7 @@ const About = ({ name, title, location, description }: Props) => {
       <AccentShapes variant="diamond" className="top-10 -left-12" />
       <Card>
         <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
-          {/* Avatar — top on mobile, right on desktop */}
-          <div className="w-32 h-32 md:w-44 md:h-44 border-2 border-black flex items-center justify-center shrink-0 bg-gray-50 overflow-hidden self-center md:self-start md:order-last">
+          <div className="w-32 h-32 md:w-44 md:h-44 border-2 border-(--color-border) flex items-center justify-center shrink-0 bg-(--color-bg) overflow-hidden self-center md:self-start md:order-last">
             <picture>
               <img
                 src={selfPhoto}
@@ -42,38 +41,40 @@ const About = ({ name, title, location, description }: Props) => {
           </div>
 
           <div className="flex-1 flex flex-col gap-5">
-            <div className="border border-black px-3 py-1 w-max">
-              <p className="font-inter font-thin text-xs tracking-widest">
+            <div className="border border-(--color-border) px-3 py-1 w-max">
+              <p className="font-inter font-thin text-xs tracking-widest text-(--color-text-base)">
                 ABOUT ME
               </p>
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2 className="font-inter font-bold text-3xl md:text-5xl">
+              <h2 className="font-inter font-bold text-3xl md:text-5xl text-(--color-text-base)">
                 {name}
               </h2>
-              <div className="font-inter font-thin text-gray-400 text-xs md:text-sm tracking-wide flex gap-2 flex-wrap">
+              <div className="font-inter font-thin text-(--color-text-muted)] text-xs md:text-sm tracking-wide flex gap-2 flex-wrap">
                 <p>{title}</p>
                 <p>·</p>
                 <p>{location}</p>
               </div>
             </div>
 
-            <p className="font-inter font-thin text-gray-500 text-base md:text-lg leading-relaxed">
+            <p className="font-inter font-thin text-(--color-text-muted)] text-base md:text-lg leading-relaxed">
               {description}
             </p>
 
             <div className="flex flex-col gap-2">
-              <p className="font-inter font-thin text-xs text-gray-400 tracking-widest">
+              <p className="font-inter font-thin text-xs text-(--color-text-muted)] tracking-widest">
                 TECH STACK
               </p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <div
                     key={skill}
-                    className="border border-black px-3 py-1 w-max"
+                    className="border border-(--color-border) px-3 py-1 w-max"
                   >
-                    <p className="font-inter font-thin text-xs">{skill}</p>
+                    <p className="font-inter font-thin text-xs text-(--color-text-base)">
+                      {skill}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -83,9 +84,13 @@ const About = ({ name, title, location, description }: Props) => {
               href="https://github.com/anasfaiq"
               target="_blank"
               rel="noreferrer"
-              className="border border-black px-4 py-2 w-max flex items-center gap-2 shadow-[6px_6px_0_#1A1A1A] active:shadow-none hover:shadow-none outline-none
-              font-inter font-medium text-sm hover:bg-black hover:text-white hover:translate-x-1 hover:translate-y-1 active:translate-x-1 active:translate-y-1
-              transition-all duration-200 active:bg-black active:text-white active:scale-95 "
+              className="border border-(--color-border) px-4 py-2 w-max flex items-center gap-2
+                shadow-[6px_6px_0_var(--color-shadow)]
+                bg-(--color-surface) text-(--color-text-base)
+                hover:bg-(--color-text-base) hover:text-(--color-surface)
+                hover:shadow-none hover:translate-x-1 hover:translate-y-1
+                active:shadow-none active:translate-x-1 active:translate-y-1 active:scale-95
+                font-inter font-medium text-sm outline-none transition-all duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-inter: 'Inter', sans-serif;
-  --color-charcoal: #1A1A1A;
-  --color-olive: #A3AD9A;
+  --font-inter: "Inter", sans-serif;
+  --color-charcoal: #1a1a1a;
+  --color-olive: #a3ad9a;
+  --color-bg: #f7f4ef;
+  --color-surface: #fdfcf9;
+  --color-text-base: #1a1a1a;
+  --color-text-muted: #6b6b5e;
+  --color-border: #1a1a1a;
+  --color-shadow: #1a1a1a;
+}
+
+.dark {
+  --color-bg: #141210;
+  --color-surface: #1e1c19;
+  --color-text-base: #f0ede6;
+  --color-text-muted: #9e9a90;
+  --color-border: #f0ede6;
+  --color-shadow: #f0ede6;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-base);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }

@@ -16,10 +16,18 @@ const App = () => {
       contactRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <div className="relative">
+      {/* sticky toggle button */}
       <button
-        className={isDarkMode ? `absolute border rounded-full p-2 top-4 right-4 bg-black border text-white hover:bg-white hover:text-black transition` : `absolute border rounded-full p-2 top-4 right-4 bg-white border text-black hover:bg-black hover:text-white transition`}
+        className="fixed bottom-4 right-4 z-50 rounded-full p-2 border
+          border-(--color-border)
+          bg-surface
+          text-(--color-text-base)
+          hover:bg-(--color-text-base)
+          hover:text-surface
+          transition duration-200"
         onClick={toggleTheme}
       >
         {isDarkMode ? (
@@ -33,7 +41,6 @@ const App = () => {
             strokeWidth={1.5}
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="icon icon-tabler icons-tabler-outline icon-tabler-moon"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" />
@@ -49,7 +56,6 @@ const App = () => {
             strokeWidth={2}
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="icon icon-tabler icons-tabler-outline icon-tabler-brightness-up"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
@@ -64,6 +70,7 @@ const App = () => {
           </svg>
         )}
       </button>
+
       <div className="flex flex-col gap-6 justify-center min-h-screen pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80">
         <Hero
           badge="AVAILABLE FOR HIRE"
