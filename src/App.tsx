@@ -85,7 +85,7 @@ const App = () => {
       />
       {/* sticky toggle button */}
       <button
-        className="fixed bottom-4 right-4 z-50 rounded-full p-2 border
+        className="fixed top-4 right-4 z-50 rounded-full p-2 border
           border-(--color-border)
           bg-surface
           text-(--color-text-base)
