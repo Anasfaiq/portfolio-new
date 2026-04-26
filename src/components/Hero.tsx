@@ -10,6 +10,7 @@ interface Props {
 }
 
 const Hero = ({ badge, title, description, buttonText, onHireMe }: Props) => {
+
   return (
     <div className="relative">
       <Card>

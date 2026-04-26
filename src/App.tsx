@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WorksGrid from "./components/WorksGrid";
@@ -6,11 +6,17 @@ import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
 import { DarkMode } from "./components/DarkMode";
 import { Reveal } from "./components/Reveal";
+import Lenis from "lenis";
 import "./App.css";
 
 const App = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   const { isDarkMode, toggleTheme } = DarkMode();
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePos({ x: e.clientX, y: e.clientY });
+  };
 
   const handleHireMe = () => {
     if (contactRef.current) {
@@ -18,8 +24,37 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      wheelMultiplier: 1,
+      infinite: false,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+  
+
   return (
-    <div className="relative">
+    <div
+      onMouseMove={handleMouseMove}
+      style={{
+        background: isDarkMode
+          ? `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(240, 237, 230, 0.07), transparent 80%)`
+          : `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(26, 26, 26, 0.2), transparent 80%)`,
+      }}
+      className="relative"
+    >
       {/* sticky toggle button */}
       <button
         className="fixed bottom-4 right-4 z-50 rounded-full p-2 border
