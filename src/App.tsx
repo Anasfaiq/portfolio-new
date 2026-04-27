@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import { DarkMode } from "./components/DarkMode";
 import { Reveal } from "./components/Reveal";
 import MouseGlow from "./components/ui/MouseGlow";
+import AnimatedGeometricBackground from "./components/ui/AnimatedGeometricBackground";
 import Lenis from "lenis";
 import "./App.css";
 
@@ -43,6 +44,7 @@ const App = () => {
 
   return (
     <div className="relative">
+      <AnimatedGeometricBackground />
       <MouseGlow isDarkMode={isDarkMode} />
       {/* sticky toggle button */}
       <button
