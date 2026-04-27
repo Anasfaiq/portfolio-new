@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState, useRef } from "react";
 import imageEtch from "../assets/etch-a-sketch.png";
 import imageManajemen from "../assets/manajemen-member.png";
 import imageBerita from "../assets/berita.png";
@@ -8,6 +8,34 @@ import comicList from "../assets/ComicList.png";
 import AccentShapes from "./ui/AccentShapes";
 import Card from "./ui/Card";
 import WorkCard from "./ui/WorkCard";
+
+interface AnimatedCardProps {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  tags: string[];
+  linkDemo: string;
+}
+
+const useReveal = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // if (entry.isIntersecting) setIsVisible(true);
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return { ref, isVisible };
+};
 
 const WorksGrid = () => {
   const works = [
@@ -67,6 +95,34 @@ const WorksGrid = () => {
     },
   ];
 
+  const AnimatedCard = ({
+    id,
+    image,
+    title,
+    description,
+    tags,
+    linkDemo,
+  }: AnimatedCardProps) => {
+    const { ref, isVisible } = useReveal();
+
+    return (
+      <div
+        ref={ref}
+        className={`transition-all duration-500 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        } ${id === 1 || id % 4 === 0 ? "md:col-span-2" : ""}`}
+      >
+        <WorkCard
+          image={image}
+          title={title}
+          description={description}
+          tags={tags}
+          linkDemo={linkDemo}
+        />
+      </div>
+    );
+  };
+
   return (
     <Fragment>
       <div className="flex flex-col gap-6">
@@ -88,16 +144,8 @@ const WorksGrid = () => {
           </Card>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {works.map(({ id, image, title, description, tags, linkDemo }) => (
-            <WorkCard
-              key={id}
-              image={image}
-              title={title}
-              description={description}
-              tags={tags}
-              linkDemo={linkDemo}
-              className={id === 1 || id % 4 === 0 ? "md:col-span-2" : ""}
-            />
+          {works.map((work) => (
+            <AnimatedCard key={work.id} {...work} />
           ))}
         </div>
       </div>
