@@ -37,6 +37,34 @@ const useReveal = () => {
   return { ref, isVisible };
 };
 
+const AnimatedCard = ({
+  id,
+  image,
+  title,
+  description,
+  tags,
+  linkDemo,
+}: AnimatedCardProps) => {
+  const { ref, isVisible } = useReveal();
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-500 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      } ${id === 1 || id % 4 === 0 ? "md:col-span-2" : ""}`}
+    >
+      <WorkCard
+        image={image}
+        title={title}
+        description={description}
+        tags={tags}
+        linkDemo={linkDemo}
+      />
+    </div>
+  );
+};
+
 const WorksGrid = () => {
   const works = [
     {
@@ -94,34 +122,6 @@ const WorksGrid = () => {
       linkDemo: "https://weather-app-kappa-teal-50.vercel.app/",
     },
   ];
-
-  const AnimatedCard = ({
-    id,
-    image,
-    title,
-    description,
-    tags,
-    linkDemo,
-  }: AnimatedCardProps) => {
-    const { ref, isVisible } = useReveal();
-
-    return (
-      <div
-        ref={ref}
-        className={`transition-all duration-500 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        } ${id === 1 || id % 4 === 0 ? "md:col-span-2" : ""}`}
-      >
-        <WorkCard
-          image={image}
-          title={title}
-          description={description}
-          tags={tags}
-          linkDemo={linkDemo}
-        />
-      </div>
-    );
-  };
 
   return (
     <Fragment>

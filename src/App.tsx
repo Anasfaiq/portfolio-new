@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import { DarkMode } from "./components/DarkMode";
 import { Reveal } from "./components/Reveal";
+import MouseGlow from "./components/ui/MouseGlow";
 import Lenis from "lenis";
 import "./App.css";
 
@@ -52,14 +53,7 @@ const App = () => {
 
   return (
     <div className="relative">
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: isDarkMode
-            ? `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(240, 237, 230, 0.07), transparent 80%)`
-            : `radial-gradient(500px at ${mousePos.x}px ${mousePos.y}px, rgba(26, 26, 26, 0.2), transparent 80%)`,
-        }}
-      />
+      <MouseGlow isDarkMode={isDarkMode} />
       {/* sticky toggle button */}
       <button
         className="fixed top-4 right-4 z-50 rounded-full p-2 border
