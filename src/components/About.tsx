@@ -1,6 +1,7 @@
 import selfPhoto from "../assets/self-photo.jpg";
 import Card from "./ui/Card";
 import AccentShapes from "./ui/AccentShapes";
+import MagneticButton from "./ui/MagneticButton";
 
 const skills = [
   "React",
@@ -80,18 +81,7 @@ const About = ({ name, title, location, description }: Props) => {
               </div>
             </div>
 
-            <a
-              href="https://github.com/anasfaiq"
-              target="_blank"
-              rel="noreferrer"
-              className="border border-(--color-border) px-4 py-2 w-max flex items-center gap-2
-                shadow-[6px_6px_0_var(--color-shadow)]
-                bg-(--color-surface) text-(--color-text-base)
-                hover:bg-(--color-text-base) hover:text-(--color-surface)
-                hover:shadow-none hover:translate-x-1 hover:translate-y-1
-                active:shadow-none active:translate-x-1 active:translate-y-1 active:scale-95
-                font-inter font-medium text-sm outline-none transition-all duration-200"
-            >
+            <MagneticButton href="https://github.com/anasfaiq">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -106,7 +96,7 @@ const About = ({ name, title, location, description }: Props) => {
                 />
               </svg>
               GitHub
-            </a>
+            </MagneticButton>
           </div>
         </div>
       </Card>

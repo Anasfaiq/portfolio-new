@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Hero = ({ badge, title, description, onHireMe }: Props) => {
-
   return (
     <div className="relative">
       <Card>
@@ -31,8 +30,22 @@ const Hero = ({ badge, title, description, onHireMe }: Props) => {
           <p className="text-base md:text-xl font-inter font-thin text-(--color-text-muted)">
             {description}
           </p>
-          <MagneticButton onHireMe={onHireMe}>
+          <MagneticButton onClick={onHireMe}>
             Hire Me
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M17 7l-10 10" />
+              <path d="M8 7l9 0l0 9" />
+            </svg>  
           </MagneticButton>
         </div>
       </Card>
