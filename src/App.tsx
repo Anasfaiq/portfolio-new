@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WorksGrid from "./components/WorksGrid";
@@ -14,7 +14,6 @@ import "./App.css";
 const App = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   const { isDarkMode, toggleTheme } = DarkMode();
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleHireMe = () => {
     if (contactRef.current) {
@@ -40,15 +39,6 @@ const App = () => {
     return () => {
       lenis.destroy();
     };
-  }, []);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
