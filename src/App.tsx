@@ -124,7 +124,6 @@ const App = () => {
               badge="AVAILABLE FOR HIRE"
               title="Frontend Developer Specializing in Modern Web Experiences"
               description="Building fast, responsive, and accessible interfaces with React, Vite, and Tailwind CSS. From concept to deployment."
-              buttonText="Hire Me"
               onHireMe={handleHireMe}
             />
           </Reveal>

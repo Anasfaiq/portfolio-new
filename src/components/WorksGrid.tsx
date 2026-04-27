@@ -81,7 +81,7 @@ const WorksGrid = () => {
               <h1 className="font-inter font-bold text-2xl md:text-3xl">
                 Selected Works
               </h1>
-              <p className="text-gray-600 text-base md:text-lg">
+              <p className="text-base md:text-lg text-(--color-text-muted)">
                 Recent projects demonstrating UI/UX and system architecture
               </p>
             </div>
