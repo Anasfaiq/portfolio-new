@@ -68,7 +68,7 @@ const Navbar = () => {
                   }
                 `}
               >
-                {/* indicator dot */}
+                {/* indicator */}
                 <span
                   className={`
                     absolute -left-3 top-1/2 -translate-y-1/2 w-0.5 h-full rounded-full
@@ -107,7 +107,7 @@ const Navbar = () => {
                     }
                   `}
                 >
-                  {/* dot indicator di atas label */}
+                  {/* indicator di atas label */}
                   <span
                     className={`
                       w-full h-0.5 rounded-full transition-all duration-300

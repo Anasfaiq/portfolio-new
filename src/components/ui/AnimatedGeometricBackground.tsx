@@ -203,7 +203,6 @@ const AnimatedGeometricBackground: React.FC = () => {
             left: shape.left,
             opacity: shape.opacity,
             animation: `float-${shape.id} ${shape.duration}s ease-in-out ${shape.delay}s infinite`,
-            // @keyframes akan di define di App.css atau global css
           }}
         >
           <ShapeComponent
