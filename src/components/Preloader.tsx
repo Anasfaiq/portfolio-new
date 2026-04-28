@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const Preloader = ({ isShattering }: { isShattering: boolean }) => {
   const [displayText, setDisplayText] = useState("");
-  const fullText = "INITIALIZING SYSTEM...";
+  const fullText = "CRAFTING THE EXPERIENCE...";
 
   useEffect(() => {
     let i = 0;
@@ -13,7 +13,7 @@ const Preloader = ({ isShattering }: { isShattering: boolean }) => {
       } else {
         clearInterval(typingInterval);
       }
-    }, 100);
+    }, 80);
     return () => clearInterval(typingInterval);
   }, []);
 
@@ -32,7 +32,7 @@ const Preloader = ({ isShattering }: { isShattering: boolean }) => {
         className={`relative z-10 border-4 border-(--color-border) p-6 md:p-10 bg-(--color-bg) transition-all duration-500
         ${isShattering ? "opacity-0 scale-90" : "opacity-100 scale-100 shadow-[6px_6px_0_var(--color-shadow)]"}`}
       >
-        <h1 className="text-(--color-text-base) font-mono text-xl md:text-3xl font-bold uppercase tracking-tighter">
+        <h1 className="text-(--color-text-base) font-cutive text-xl md:text-3xl font-bold uppercase tracking-tighter">
           {displayText} <span className="animate-blink">_</span>
         </h1>
       </div>

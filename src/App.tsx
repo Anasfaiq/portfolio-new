@@ -62,6 +62,62 @@ const App = () => {
   return (
     <>
       {phase !== "ready" && <Preloader isShattering={phase === "shattering"} />}
+
+      <AnimatedGeometricBackground />
+      <MouseGlow isDarkMode={isDarkMode} />
+      {/* sticky toggle button */}
+      <button
+        className="fixed top-4 right-4 z-50 rounded-full p-2 border
+          border-(--color-border)
+          bg-surface
+          text-(--color-text-base)
+          hover:bg-(--color-text-base)
+          hover:text-surface
+          transition duration-200"
+        onClick={toggleTheme}
+      >
+        {isDarkMode ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M12 5l0 -2" />
+            <path d="M17 7l1.4 -1.4" />
+            <path d="M19 12l2 0" />
+            <path d="M17 17l1.4 1.4" />
+            <path d="M12 19l0 2" />
+            <path d="M7 17l-1.4 1.4" />
+            <path d="M6 12l-2 0" />
+            <path d="M7 7l-1.4 -1.4" />
+          </svg>
+        )}
+      </button>
+
+      <Navbar />
       <div
         className={`relative transition-all duration-1000 ease-out transform
         ${
@@ -70,62 +126,6 @@ const App = () => {
             : "opacity-0 translate-y-12"
         }`}
       >
-        <AnimatedGeometricBackground />
-        <MouseGlow isDarkMode={isDarkMode} />
-        {/* sticky toggle button */}
-        <button
-          className="fixed top-4 right-4 z-50 rounded-full p-2 border
-          border-(--color-border)
-          bg-surface
-          text-(--color-text-base)
-          hover:bg-(--color-text-base)
-          hover:text-surface
-          transition duration-200"
-          onClick={toggleTheme}
-        >
-          {isDarkMode ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-              <path d="M12 5l0 -2" />
-              <path d="M17 7l1.4 -1.4" />
-              <path d="M19 12l2 0" />
-              <path d="M17 17l1.4 1.4" />
-              <path d="M12 19l0 2" />
-              <path d="M7 17l-1.4 1.4" />
-              <path d="M6 12l-2 0" />
-              <path d="M7 7l-1.4 -1.4" />
-            </svg>
-          )}
-        </button>
-
-        <Navbar />
-
         <div className="flex flex-col gap-6 justify-center min-h-screen pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80">
           <section id="hero">
             <Reveal>
