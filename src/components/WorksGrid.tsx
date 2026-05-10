@@ -5,6 +5,7 @@ import imageBerita from "../assets/berita.png";
 import imageCalculator from "../assets/kalkulator.png";
 import imageWeather from "../assets/weather.png";
 import comicList from "../assets/ComicList.png";
+import lofifocus from "../assets/lofifocus.png";
 import AccentShapes from "./ui/AccentShapes";
 import Card from "./ui/Card";
 import WorkCard from "./ui/WorkCard";
@@ -16,6 +17,7 @@ interface AnimatedCardProps {
   description: string;
   tags: string[];
   linkDemo: string;
+  isWide?: boolean;
 }
 
 const useReveal = () => {
@@ -38,12 +40,12 @@ const useReveal = () => {
 };
 
 const AnimatedCard = ({
-  id,
   image,
   title,
   description,
   tags,
   linkDemo,
+  isWide,
 }: AnimatedCardProps) => {
   const { ref, isVisible } = useReveal();
 
@@ -52,7 +54,7 @@ const AnimatedCard = ({
       ref={ref}
       className={`transition-all duration-500 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${id === 1 || id % 4 === 0 ? "md:col-span-2" : ""}`}
+      } ${isWide ? "md:col-span-2" : ""}`}
     >
       <WorkCard
         image={image}
@@ -69,6 +71,7 @@ const WorksGrid = () => {
   const works = [
     {
       id: 1,
+      isWide: true,
       image: comicList,
       title: "Comic List",
       description:
@@ -78,6 +81,7 @@ const WorksGrid = () => {
     },
     {
       id: 2,
+      isWide: false,
       image: imageBerita,
       title: "Berita",
       description:
@@ -87,6 +91,7 @@ const WorksGrid = () => {
     },
     {
       id: 3,
+      isWide: false,
       image: imageManajemen,
       title: "Manajemen Member",
       description:
@@ -96,6 +101,7 @@ const WorksGrid = () => {
     },
     {
       id: 4,
+      isWide: true,
       image: imageEtch,
       title: "Etch-a-Sketch",
       description:
@@ -105,6 +111,7 @@ const WorksGrid = () => {
     },
     {
       id: 5,
+      isWide: false,
       image: imageCalculator,
       title: "Kalkulator",
       description:
@@ -114,12 +121,23 @@ const WorksGrid = () => {
     },
     {
       id: 6,
+      isWide: false,
       image: imageWeather,
       title: "Weather App",
       description:
         "Get real-time weather updates based on your location — displays temperature, conditions, and forecasts with a clean, minimal interface.",
       tags: ["JavaScript", "HTML5", "Tailwind CSS", "CSS3"],
       linkDemo: "https://weather-app-kappa-teal-50.vercel.app/",
+    },
+    {
+      id: 7,
+      isWide: true,
+      image: lofifocus,
+      title: "LofiFocus",
+      description:
+        "A productivity web application built with React, TypeScript, and Tailwind CSS. Features a Pomodoro timer with session tracking, task manager with local storage persistence, and a lo-fi radio player powered by the YouTube IFrame API — all wrapped in a clean, distraction-free interface with dark mode support.",
+      tags: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      linkDemo: "https://lofi-focus-omega.vercel.app/",
     },
   ];
 
